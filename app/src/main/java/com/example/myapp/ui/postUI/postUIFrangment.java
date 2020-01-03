@@ -30,14 +30,11 @@ import com.example.myapp.MainActivity;
 import com.example.myapp.ui.home.HomeFragment;
 
 public class postUIFrangment extends Fragment {
-    public static postUIFrangment newInstance() {
-        return new postUIFrangment();
-    }
     private postUIViewModel postUIViewModel;
     private final int GET_GALLERY_IMGAGE = 200;
     private ImageView imageview;
     private EditText editText;
-    private TextView textView;
+    private TextView textView,textViewB;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         postUIViewModel = ViewModelProviders.of(this).get(postUIViewModel.class);
@@ -76,15 +73,14 @@ public class postUIFrangment extends Fragment {
             }
         });
 
-        textView = root.findViewById(R.id.sendText);
-        textView.setOnClickListener(new View.OnClickListener()
+        textViewB = root.findViewById(R.id.sendText);
+        textViewB.setOnClickListener(new View.OnClickListener()
         {
 
             @Override
             public void onClick(View v)
             {
                 Toast.makeText(getActivity(), "수정해야됨", Toast.LENGTH_SHORT).show();
-                ((MainActivity)getActivity()).replaceFragment(HomeFragment.newInstance());
             }
         });
 

@@ -18,9 +18,6 @@ import com.example.myapp.R;
 import com.example.myapp.SingUp;
 
 public class HomeFragment extends Fragment {
-    public static HomeFragment newInstance() {
-        return new HomeFragment();
-    }
     private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
