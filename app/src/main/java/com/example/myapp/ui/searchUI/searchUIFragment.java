@@ -1,4 +1,4 @@
-package com.example.myapp.ui.dashboard;
+package com.example.myapp.ui.searchUI;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapp.R;
 
-public class DashboardFragment extends Fragment {
+public class searchUIFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private searchUIViewModel searchUIViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(this, new Observer<String>() {
+        searchUIViewModel =
+                ViewModelProviders.of(this).get(searchUIViewModel.class);
+        View root = inflater.inflate(R.layout.frament_search, container, false);
+        final TextView textView = root.findViewById(R.id.text_search);
+        searchUIViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

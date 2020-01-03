@@ -1,16 +1,16 @@
-package com.example.myapp.ui.notifications;
+package com.example.myapp.ui.postUI;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class postUIViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public postUIViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("This is posting fragment");
     }
 
     public LiveData<String> getText() {
