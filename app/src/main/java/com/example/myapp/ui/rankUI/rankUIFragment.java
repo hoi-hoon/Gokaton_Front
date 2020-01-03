@@ -23,13 +23,7 @@ public class rankUIFragment extends Fragment {
         rankUIViewModel =
                 ViewModelProviders.of(this).get(rankUIViewModel.class);
         View root = inflater.inflate(R.layout.fragment_rank, container, false);
-        final TextView textView = root.findViewById(R.id.text_rank);
-        rankUIViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
         return root;
     }
 }
