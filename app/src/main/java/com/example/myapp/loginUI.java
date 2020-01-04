@@ -77,7 +77,7 @@ public class loginUI extends AppCompatActivity {
         protected String doInBackground(Void... params) {
             String result; // 요청 결과를 저장할 변수.
             RequestHttpURLConnection requestHttpURLConnection = new RequestHttpURLConnection();
-            result = requestHttpURLConnection.request(url, values); // 해당 URL로부터 결과물을 얻어온다.
+            result = requestHttpURLConnection.request(url, values,"POST",null); // 해당 URL로부터 결과물을 얻어온다.
             return result;
         }
 

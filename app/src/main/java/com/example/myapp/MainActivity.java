@@ -1,20 +1,24 @@
 package com.example.myapp;
 
+import android.content.ContentValues;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.content.Intent;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -68,6 +72,11 @@ public class MainActivity extends AppCompatActivity {
         Button btnsign = (Button) findViewById(R.id.home_signbtn);
         btnsign.setOnClickListener(onClickListener);
 
+        String url = "http://52.79.226.55:8000/api/auth/me";
+
+        NetworkTask networkTask = new NetworkTask(url, null);
+        networkTask.execute();
+
         // 토큰 확인용 임시. 추후 삭제 요망
         Button tokenBtn = (Button) findViewById(R.id.token_chk_btn);
         tokenBtn.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +100,59 @@ public class MainActivity extends AppCompatActivity {
             }
 //        } else if (requestCode == REQUEST_ANOTHER) {
 //            ...
+        }
+    }
+
+    public class NetworkTask extends AsyncTask<Void, Void, String> {
+
+        private String url;
+        private ContentValues values;
+
+        public NetworkTask(String url, ContentValues values) {
+            this.url = url;
+            this.values = values;
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+            String result; // 요청 결과를 저장할 변수.
+            SharedPreferences sp = getSharedPreferences("UserTokenKey", MODE_PRIVATE);
+            String token = sp.getString("TokenCode", "");
+            RequestHttpURLConnection requestHttpURLConnection = new RequestHttpURLConnection();
+            result = requestHttpURLConnection.request(url, values,"GET",token);
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            if(s!=null) {
+                User user = new User();
+                try {
+                    JSONObject jObj = new JSONObject(s);
+                    Log.i("@@@@@@@@@@@@@@@@",jObj.getJSONObject("data").toString());
+
+                    //user.username = jObj.get("username").toString();
+                    //user.name = jObj.get("name").toString();
+                    //user.email = jObj.get("email").toString();
+                    //user.profile = jObj.get("profile").toString();
+                    //user.exp = jObj.get("exp").toString();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                SharedPreferences sp = getSharedPreferences("UserTokenKey", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                // Object 저장하는 법 찾아야됨
+                //editor.putString("id", user.id);
+                //editor.putString("username", user.username);
+                //editor.putString("name", user.name);
+                //editor.putString("email", user.email);
+                //editor.putString("profile", user.profile);
+                //editor.putString("exp", user.exp);
+                editor.apply();
+            }
         }
     }
 }
