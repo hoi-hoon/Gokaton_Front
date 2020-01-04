@@ -69,7 +69,7 @@
         android:paddingTop="15dp"
         android:paddingRight="15dp"
         android:paddingBottom="15dp"
-        android:text="태그 추가"
+        android:hint="태그 추가"
         app:layout_constraintBottom_toTopOf="@+id/sendText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.619"

@@ -1,6 +1,7 @@
 package com.example.myapp;
 
 import android.content.ContentValues;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,7 +14,7 @@ import java.net.URL;
 import java.util.Map;
 
 public class RequestHttpURLConnection {
-    public String request(String _url, ContentValues _params) {
+    public String request(String _url, ContentValues _params, String requestMethod, String Token) {
 
         HttpURLConnection urlConn = null;
 
@@ -61,22 +62,31 @@ public class RequestHttpURLConnection {
             // [2-1]. urlConn 설정.
             urlConn.setReadTimeout(10000);
             urlConn.setConnectTimeout(15000);
-            urlConn.setRequestMethod("POST"); // URL 요청에 대한 메소드 설정 : GET/POST.
-            urlConn.setDoOutput(true);
+            urlConn.setRequestMethod(requestMethod); // URL 요청에 대한 메소드 설정 : GET/POST.
+            if(requestMethod=="POST") {
+                urlConn.setDoOutput(true);
+            }else{urlConn.setDoOutput(false);
+            }
             urlConn.setDoInput(true);
             urlConn.setRequestProperty("Accept-Charset", "utf-8"); // Accept-Charset 설정.
-            urlConn.setRequestProperty("Context_Type", "application/x-www-form-urlencoded");
-
+           // urlConn.setRequestProperty("Context_Type", "application/x-www-form-urlencoded");
+            if(Token != null){
+                urlConn.setRequestProperty("x-access-token", Token);
+            }
             // [2-2]. parameter 전달 및 데이터 읽어오기.
-            PrintWriter pw = new PrintWriter(new OutputStreamWriter(urlConn.getOutputStream()));
-            pw.write(sbParams.toString());
-            pw.flush(); // 출력 스트림을 flush. 버퍼링 된 모든 출력 바이트를 강제 실행.
-            pw.close(); // 출력 스트림을 닫고 모든 시스템 자원을 해제.
-
+            if(requestMethod=="POST") {
+                PrintWriter pw = new PrintWriter(new OutputStreamWriter(urlConn.getOutputStream()));
+                pw.write(sbParams.toString());
+                pw.flush(); // 출력 스트림을 flush. 버퍼링 된 모든 출력 바이트를 강제 실행.
+                pw.close(); // 출력 스트림을 닫고 모든 시스템 자원을 해제.
+            }
             // [2-3]. 연결 요청 확인.
+
             // 실패 시 null을 리턴하고 메서드를 종료.
-            if (urlConn.getResponseCode() != HttpURLConnection.HTTP_OK)
+            if (urlConn.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                Log.i("@@@@@@@@@@ fail",  Integer.toString(urlConn.getResponseCode()));
                 return null;
+            }
 
             // [2-4]. 읽어온 결과물 리턴.
             // 요청한 URL의 출력물을 BufferedReader로 받는다.
@@ -90,6 +100,7 @@ public class RequestHttpURLConnection {
             while ((line = reader.readLine()) != null) {
                 page += line;
             }
+            Log.i("@@@@@@@@@@return value","@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
             return page;
 
         } catch (MalformedURLException e) { // for URL.
@@ -100,6 +111,7 @@ public class RequestHttpURLConnection {
             if (urlConn != null)
                 urlConn.disconnect();
         }
+        Log.i("@@@@@@@@@@return null","@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         return null;
     }
 }
