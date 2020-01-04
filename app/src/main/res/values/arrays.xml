@@ -5,4 +5,9 @@
         <item >최신순</item>
         <item >섹스</item>
     </string-array>
+    <string-array name="searchreview">
+        <item>등급순</item>
+        <item>최신순</item>
+        <item>김재훈</item>
+    </string-array>
 </resources>
