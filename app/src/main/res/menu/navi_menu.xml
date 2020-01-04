@@ -2,19 +2,29 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/account"
+            android:id="@+id/drawer_tip"
             android:icon="@drawable/ic_launcher_foreground"
-            android:title="계정"
+            android:title="혼플 꿀팁"
             />
         <item
-            android:id="@+id/setting"
+            android:id="@+id/drawer_store"
             android:icon="@drawable/ic_launcher_foreground"
-            android:title="설정"
+            android:title="경험치 상점"
             />
         <item
-            android:id="@+id/logout"
+            android:id="@+id/drawer_event"
             android:icon="@drawable/ic_launcher_foreground"
-            android:title="로그아웃"
+            android:title="이벤트"
+            />
+        <item
+            android:id="@+id/drawer_noti"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="공지사항"
+            />
+        <item
+            android:id="@+id/drawer_cs"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="1:1 문의"
             />
     </group>
 </menu>
