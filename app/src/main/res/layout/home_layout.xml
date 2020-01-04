@@ -14,6 +14,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+<<<<<<< HEAD
+<<<<<<< HEAD
+        android:id="@+id/home_mypagebtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="My Page"
+=======
+=======
+>>>>>>> 6f142eda71a0156b6cbcbe4d3110747f456aaf4e
+        android:id="@+id/home_signbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="@string/title_signup"
+<<<<<<< HEAD
+>>>>>>> 6f142eda71a0156b6cbcbe4d3110747f456aaf4e
+=======
+>>>>>>> 6f142eda71a0156b6cbcbe4d3110747f456aaf4e
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/home_homebtn"
         android:layout_width="38dp"

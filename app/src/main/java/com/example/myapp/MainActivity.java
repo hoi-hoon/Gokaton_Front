@@ -42,6 +42,27 @@ public class MainActivity extends AppCompatActivity {
                         startActivityForResult(intentC,1);
                         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                         break ;
+<<<<<<< HEAD
+<<<<<<< HEAD
+                    case R.id.home_mypagebtn :
+                        Intent intentD = new Intent(getApplicationContext(), mypageUI.class);
+                        startActivityForResult(intentD,1);
+                        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+                        break ;
+
+
+=======
+=======
+>>>>>>> 6f142eda71a0156b6cbcbe4d3110747f456aaf4e
+                    case R.id.home_signbtn :
+                        Intent intentD = new Intent(getApplicationContext(), signupUI.class);
+                        startActivityForResult(intentD,1);
+                        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+                        break ;
+<<<<<<< HEAD
+>>>>>>> 6f142eda71a0156b6cbcbe4d3110747f456aaf4e
+=======
+>>>>>>> 6f142eda71a0156b6cbcbe4d3110747f456aaf4e
                 }
             }
         } ;
@@ -51,6 +72,19 @@ public class MainActivity extends AppCompatActivity {
         btnrank.setOnClickListener(onClickListener) ;
         ImageButton btnpost = (ImageButton) findViewById(R.id.home_postbtn) ;
         btnpost.setOnClickListener(onClickListener) ;
+<<<<<<< HEAD
+<<<<<<< HEAD
+        Button btnmypage = (Button) findViewById(R.id.home_mypagebtn);
+        btnmypage.setOnClickListener(onClickListener);
+
+=======
+        Button btnsign = findViewById(R.id.home_signbtn) ;
+        btnsign.setOnClickListener(onClickListener) ;
+>>>>>>> 6f142eda71a0156b6cbcbe4d3110747f456aaf4e
+=======
+        Button btnsign = findViewById(R.id.home_signbtn) ;
+        btnsign.setOnClickListener(onClickListener) ;
+>>>>>>> 6f142eda71a0156b6cbcbe4d3110747f456aaf4e
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
