@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         btnsign.setOnClickListener(onClickListener);
 
         //------------------------------------------hoi
+        ////------------------------------------------hoi22222
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
