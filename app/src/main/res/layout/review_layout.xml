@@ -322,6 +322,7 @@
                 android:layout_weight="5">
             </LinearLayout>
             <ImageView
+                android:id="@+id/review_forwardbtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
