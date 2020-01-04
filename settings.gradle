@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':gson-2.8.6', ':base-13.0'
 rootProject.name='myapp'
