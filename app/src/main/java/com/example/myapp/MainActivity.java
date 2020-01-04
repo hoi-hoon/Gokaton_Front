@@ -94,6 +94,17 @@ public class MainActivity extends AppCompatActivity {
                 String token = sp.getString("id", "");
                 token = token + sp.getString("email", "");
                 Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
+
+                // for logout
+                SharedPreferences.Editor editor = sp.edit();
+                editor.clear();
+                editor.apply();
+
+                Intent intent = new Intent();
+                intent.putExtra("result", "캐시 지우기성공");
+                setResult(2, intent);
+                Log.i("here","1");
+                finish();
             }
         });
     }
@@ -161,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
                     editor.apply();
 
                     TextView textName = findViewById(R.id.home_default_name);
-                    TextView textLevel = findViewById(R.id.home_default_name);
+                    TextView textLevel = findViewById(R.id.home_default_level);
                     textName.setText(jObj.getJSONObject("data").getString("name"));
                     textLevel.setText(jObj.getJSONObject("data").getString("lv"));
 
