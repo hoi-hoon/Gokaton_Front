@@ -10,4 +10,7 @@
         <item>최신순</item>
         <item>김재훈</item>
     </string-array>
+    <integer-array name="needExp">
+        <item>0</item>
+    </integer-array>
 </resources>
