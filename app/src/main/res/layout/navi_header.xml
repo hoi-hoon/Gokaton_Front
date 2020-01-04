@@ -7,30 +7,30 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="@drawable/startimage5"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:orientation="vertical"
-    android:gravity="bottom">
+    android:weightSum="6"
+    android:gravity="center_vertical">
+
+
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:paddingTop="10dp"
-        app:srcCompat="@drawable/ic_account"
-        android:contentDescription="내용 바꿔야함"
-        android:id="@+id/imageView"/>
+        app:srcCompat="@drawable/ic_account" />
 
-    <TextView
+
+
+    <Button
+        android:id="@+id/logout_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:text="여기 바꿔야함"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+        android:text="로그아웃"
+        android:background="@drawable/borderline"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="여기 바꿔야함"
-        android:id="@+id/textView"/>
 
 </LinearLayout>
