@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <Button
+        <Button
         android:id="@+id/home_mypagebtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,6 +23,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="200dp"
             android:text="@string/title_signup"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/token_chk_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="토큰체크"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
