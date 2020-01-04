@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapp">
-
     <!-- 네트워크 사용에 대한 퍼미션 -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,6 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".rankUI"></activity>
+        <activity android:name=".searchUI" />
+        <activity android:name=".postUI" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
@@ -21,8 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SingUp"/>
-        <activity android:name=".RequestHttpConnection"/>
+        <activity android:name=".SingUp" />
+        <activity android:name=".RequestHttpConnection" />
     </application>
 
 </manifest>

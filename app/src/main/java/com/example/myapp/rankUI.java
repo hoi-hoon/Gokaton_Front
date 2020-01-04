@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.content.Intent;
-public class MainActivity extends AppCompatActivity {
+public class rankUI extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,22 +21,22 @@ public class MainActivity extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.home_layout);
+        setContentView(R.layout.rank_layout);
         Button.OnClickListener onClickListener = new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 switch (view.getId()) {
-                    case R.id.home_searchbtn :
+                    case R.id.rank_searchbtn :
                         Intent intentA = new Intent(getApplicationContext(), searchUI.class);
                         startActivity(intentA);
                         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                         break ;
-                    case R.id.home_rankbtn :
-                        Intent intentB = new Intent(getApplicationContext(), rankUI.class);
+                    case R.id.rank_homebtn :
+                        Intent intentB = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intentB);
                         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                         break ;
-                    case R.id.home_postbtn :
+                    case R.id.rank_postbtn :
                         Intent intentC = new Intent(getApplicationContext(), postUI.class);
                         startActivity(intentC);
                         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
@@ -44,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } ;
-        ImageButton btnsearch = (ImageButton) findViewById(R.id.home_searchbtn) ;
+        ImageButton btnsearch = (ImageButton) findViewById(R.id.rank_searchbtn) ;
         btnsearch.setOnClickListener(onClickListener) ;
-        ImageButton btnrank = (ImageButton) findViewById(R.id.home_rankbtn) ;
-        btnrank.setOnClickListener(onClickListener) ;
-        ImageButton btnpost = (ImageButton) findViewById(R.id.home_postbtn) ;
+        ImageButton btnhome = (ImageButton) findViewById(R.id.rank_homebtn) ;
+        btnhome.setOnClickListener(onClickListener) ;
+        ImageButton btnpost = (ImageButton) findViewById(R.id.rank_postbtn) ;
         btnpost.setOnClickListener(onClickListener) ;
     }
 
