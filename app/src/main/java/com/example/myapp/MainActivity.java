@@ -149,7 +149,13 @@ public class MainActivity extends AppCompatActivity {
                     editor.putString("email", jObj.getJSONObject("data").getString("email"));
                     editor.putString("profile", jObj.getJSONObject("data").getString("profile"));
                     editor.putString("exp", jObj.getJSONObject("data").getString("exp"));
+                    editor.putString("lv", jObj.getJSONObject("data").getString("lv"));
                     editor.apply();
+
+                    TextView textName = findViewById(R.id.home_default_name);
+                    TextView textLevel = findViewById(R.id.home_default_name);
+                    textName.setText(jObj.getJSONObject("data").getString("name"));
+                    textLevel.setText(jObj.getJSONObject("data").getString("lv"));
 
                 } catch (JSONException e) {
                     e.printStackTrace();
