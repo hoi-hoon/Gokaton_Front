@@ -9,12 +9,14 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ImageView
-            android:layout_weight="4"
-            android:scaleType="centerCrop"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/login_background"/>
+            android:layout_weight="4"
+            android:background="@drawable/main_background_image"
+            android:scaleType="centerCrop" />
+
         //android:src="@drawable/ic_account"
     </LinearLayout>
 
@@ -23,17 +25,12 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_margin="?actionBarSize"
-            android:textStyle="bold"
-            android:textSize="40sp"
-            android:textColor="#fff"
-            android:text="LOGIN"
-            android:background="#0000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
+
+
 
         <EditText
             android:id="@+id/login_id"
@@ -46,7 +43,6 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:background="@drawable/borderline"
-
             android:textSize="17sp" />
         <EditText
             android:id="@+id/login_pw"
@@ -72,8 +68,7 @@
             android:layout_height="35dp"
             android:layout_margin="20dp"/>
         <TextView
-            android:layout_marginTop="20dp"
-            android:textColor="#fff"
+            android:layout_marginTop="0dp"
             android:text="Forgot Password?"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

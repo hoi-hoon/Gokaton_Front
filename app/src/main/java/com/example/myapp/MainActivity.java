@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 
 
@@ -12,15 +13,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.content.Intent;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.util.DisplayMetrics;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.view.ViewGroup.LayoutParams;
+import android.graphics.Color;
+import org.w3c.dom.Text;
+import android.view.MotionEvent;
 public class MainActivity extends AppCompatActivity {
-
+    private int ImageCount = 5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,49 +40,43 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.home_layout);
+
         Button.OnClickListener onClickListener = new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 switch (view.getId()) {
-                    case R.id.home_searchbtn :
+                    case R.id.home_searchbtn:
                         Intent intentA = new Intent(getApplicationContext(), searchUI.class);
                         startActivity(intentA);
                         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-                        break ;
-                    case R.id.home_rankbtn :
+                        break;
+                    case R.id.home_rankbtn:
                         Intent intentB = new Intent(getApplicationContext(), rankUI.class);
                         startActivity(intentB);
                         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-                        break ;
-                    case R.id.home_postbtn :
+                        break;
+                    case R.id.home_postbtn:
                         Intent intentC = new Intent(getApplicationContext(), postUI.class);
-                        startActivityForResult(intentC,1);
+                        startActivityForResult(intentC, 1);
                         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-                        break ;
-                    case R.id.home_mypagebtn :
+                        break;
+                    case R.id.home_mypagebtn:
                         Intent intentD = new Intent(getApplicationContext(), mypageUI.class);
-                        startActivityForResult(intentD,1);
+                        startActivityForResult(intentD, 1);
                         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-                        break ;
-                    case R.id.home_signbtn :
-                        Intent intentE = new Intent(getApplicationContext(), signupUI.class);
-                        startActivityForResult(intentE,1);
-                        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-                        break ;
+                        break;
                 }
             }
         };
 
-        ImageButton btnsearch = (ImageButton) findViewById(R.id.home_searchbtn) ;
-        btnsearch.setOnClickListener(onClickListener) ;
-        ImageButton btnrank = (ImageButton) findViewById(R.id.home_rankbtn) ;
-        btnrank.setOnClickListener(onClickListener) ;
-        ImageButton btnpost = (ImageButton) findViewById(R.id.home_postbtn) ;
-        btnpost.setOnClickListener(onClickListener) ;
+        ImageButton btnsearch = (ImageButton) findViewById(R.id.home_searchbtn);
+        btnsearch.setOnClickListener(onClickListener);
+        ImageButton btnrank = (ImageButton) findViewById(R.id.home_rankbtn);
+        btnrank.setOnClickListener(onClickListener);
+        ImageButton btnpost = (ImageButton) findViewById(R.id.home_postbtn);
+        btnpost.setOnClickListener(onClickListener);
         Button btnmypage = (Button) findViewById(R.id.home_mypagebtn);
         btnmypage.setOnClickListener(onClickListener);
-        Button btnsign = (Button) findViewById(R.id.home_signbtn);
-        btnsign.setOnClickListener(onClickListener);
 
         String url = "http://52.79.226.55:8000/api/auth/me";
 

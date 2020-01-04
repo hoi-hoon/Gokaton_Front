@@ -12,8 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".reviewUI"></activity>
+        <activity android:name=".reviewsUI"></activity>
+        <activity android:name=".reviewUI" />
         <activity android:name=".searchResultUI" />
+
         <activity android:name=".loginUI">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".signupUI" />
         <activity android:name=".mypageUI" />
         <activity android:name=".rankUI" />
