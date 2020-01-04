@@ -1,20 +1,22 @@
 package com.example.myapp;
+
 import android.content.ContentValues;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
 
-public class RequestHttpConnection {
+public class RequestHttpURLConnection {
+    public String request(String _url, ContentValues _params) {
 
-    public String request(String _url, ContentValues _params){
-
-        // HttpURLConnection 참조 변수.
         HttpURLConnection urlConn = null;
+
         // URL 뒤에 붙여서 보낼 파라미터.
         StringBuffer sbParams = new StringBuffer();
 
@@ -32,7 +34,7 @@ public class RequestHttpConnection {
             String key;
             String value;
 
-            for(Map.Entry<String, Object> parameter : _params.valueSet()){
+            for (Map.Entry<String, Object> parameter : _params.valueSet()) {
                 key = parameter.getKey();
                 value = parameter.getValue().toString();
 
@@ -52,21 +54,24 @@ public class RequestHttpConnection {
         /**
          * 2. HttpURLConnection을 통해 web의 데이터를 가져온다.
          * */
-        try{
+        try {
             URL url = new URL(_url);
             urlConn = (HttpURLConnection) url.openConnection();
 
             // [2-1]. urlConn 설정.
-            urlConn.setRequestMethod("POST"); // URL 요청에 대한 메소드 설정 : POST.
-            urlConn.setRequestProperty("Accept-Charset", "UTF-8"); // Accept-Charset 설정.
-            urlConn.setRequestProperty("Context_Type", "application/x-www-form-urlencoded;cahrset=UTF-8");
+            urlConn.setReadTimeout(10000);
+            urlConn.setConnectTimeout(15000);
+            urlConn.setRequestMethod("POST"); // URL 요청에 대한 메소드 설정 : GET/POST.
+            urlConn.setDoOutput(true);
+            urlConn.setDoInput(true);
+            urlConn.setRequestProperty("Accept-Charset", "utf-8"); // Accept-Charset 설정.
+            urlConn.setRequestProperty("Context_Type", "application/x-www-form-urlencoded");
 
             // [2-2]. parameter 전달 및 데이터 읽어오기.
-            String strParams = sbParams.toString(); //sbParams에 정리한 파라미터들을 스트링으로 저장. 예)id=id1&pw=123;
-            OutputStream os = urlConn.getOutputStream();
-            os.write(strParams.getBytes("UTF-8")); // 출력 스트림에 출력.
-            os.flush(); // 출력 스트림을 플러시(비운다)하고 버퍼링 된 모든 출력 바이트를 강제 실행.
-            os.close(); // 출력 스트림을 닫고 모든 시스템 자원을 해제.
+            PrintWriter pw = new PrintWriter(new OutputStreamWriter(urlConn.getOutputStream()));
+            pw.write(sbParams.toString());
+            pw.flush(); // 출력 스트림을 flush. 버퍼링 된 모든 출력 바이트를 강제 실행.
+            pw.close(); // 출력 스트림을 닫고 모든 시스템 자원을 해제.
 
             // [2-3]. 연결 요청 확인.
             // 실패 시 null을 리턴하고 메서드를 종료.
@@ -82,10 +87,9 @@ public class RequestHttpConnection {
             String page = "";
 
             // 라인을 받아와 합친다.
-            while ((line = reader.readLine()) != null){
+            while ((line = reader.readLine()) != null) {
                 page += line;
             }
-
             return page;
 
         } catch (MalformedURLException e) { // for URL.
@@ -96,9 +100,6 @@ public class RequestHttpConnection {
             if (urlConn != null)
                 urlConn.disconnect();
         }
-
         return null;
-
     }
-
 }

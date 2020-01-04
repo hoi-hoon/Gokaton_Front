@@ -42,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
                         startActivityForResult(intentC,1);
                         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                         break ;
+                    case R.id.home_signbtn :
+                        Intent intentD = new Intent(getApplicationContext(), signupUI.class);
+                        startActivityForResult(intentD,1);
+                        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+                        break ;
                 }
             }
         } ;
@@ -51,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         btnrank.setOnClickListener(onClickListener) ;
         ImageButton btnpost = (ImageButton) findViewById(R.id.home_postbtn) ;
         btnpost.setOnClickListener(onClickListener) ;
+        Button btnsign = findViewById(R.id.home_signbtn) ;
+        btnsign.setOnClickListener(onClickListener) ;
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
