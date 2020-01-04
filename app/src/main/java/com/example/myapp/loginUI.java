@@ -2,6 +2,7 @@ package com.example.myapp;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class loginUI extends AppCompatActivity {
     @Override
@@ -55,18 +60,27 @@ public class loginUI extends AppCompatActivity {
         protected String doInBackground(Void... params) {
             String result; // 요청 결과를 저장할 변수.
             RequestHttpURLConnection requestHttpURLConnection = new RequestHttpURLConnection();
-            result = requestHttpURLConnection.request(url, values); // 해당 URL로 부터 결과물을 얻어온다.
+            result = requestHttpURLConnection.request(url, values); // 해당 URL로부터 결과물을 얻어온다.
             return result;
         }
 
         @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            Log.i("http response",s);
-            Toast.makeText(loginUI.this, s, Toast.LENGTH_SHORT).show();
-            /*
-            토큰 저장 코드
-             */
+        protected void onPostExecute(String token) {
+            super.onPostExecute(token);
+            try {
+                JSONObject jObj = new JSONObject(token);
+                token = jObj.get("data").toString();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            Log.i("http response",token);
+            Toast.makeText(loginUI.this, token, Toast.LENGTH_SHORT).show();
+            //토큰 저장 코드, 값을 저장한다.
+            SharedPreferences sp = getSharedPreferences("UserTokenKey", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString("TokenCode", token);
+            editor.apply();
+
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
         }

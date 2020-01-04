@@ -1,5 +1,6 @@
 package com.example.myapp;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 
@@ -66,8 +67,18 @@ public class MainActivity extends AppCompatActivity {
         btnmypage.setOnClickListener(onClickListener);
         Button btnsign = (Button) findViewById(R.id.home_signbtn);
         btnsign.setOnClickListener(onClickListener);
-        //------------------------------------------hoi
-        ////------------------------------------------hoi22222
+
+        // 토큰 확인용 임시. 추후 삭제 요망
+        Button tokenBtn = (Button) findViewById(R.id.token_chk_btn);
+        tokenBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 토큰 가져오는 코드
+                SharedPreferences sp = getSharedPreferences("UserTokenKey", MODE_PRIVATE);
+                String token = sp.getString("TokenCode", "");
+                Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
