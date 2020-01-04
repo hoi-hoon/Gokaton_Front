@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.content.Intent;
+import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                         break ;
                     case R.id.home_postbtn :
                         Intent intentC = new Intent(getApplicationContext(), postUI.class);
-                        startActivity(intentC);
+                        startActivityForResult(intentC,1);
                         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                         break ;
                 }
@@ -51,5 +52,17 @@ public class MainActivity extends AppCompatActivity {
         ImageButton btnpost = (ImageButton) findViewById(R.id.home_postbtn) ;
         btnpost.setOnClickListener(onClickListener) ;
     }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                Toast.makeText(MainActivity.this, "Result: " + data.getStringExtra("result"), Toast.LENGTH_SHORT).show();
+            } else {   // RESULT_CANCEL
+                Toast.makeText(MainActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+            }
+//        } else if (requestCode == REQUEST_ANOTHER) {
+//            ...
+        }
+    }
 }

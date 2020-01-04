@@ -49,14 +49,17 @@
         android:layout_weight="0.5"
         android:hint="글자수"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/reviewText"
+        app:layout_constraintEnd_toEndOf="@+id/review_Text"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/tag_text"
-        android:layout_width="339dp"
-        android:layout_height="186dp"
+        android:layout_width="288dp"
+        android:layout_height="57dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/review_shape"
         android:ems="10"
         android:inputType="textMultiLine"
@@ -66,11 +69,13 @@
         android:paddingTop="15dp"
         android:paddingRight="15dp"
         android:paddingBottom="15dp"
-        android:text="태그를 추가해주세요"
+        android:text="태그 추가"
         app:layout_constraintBottom_toTopOf="@+id/sendText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.619"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reviewText" />
+        app:layout_constraintTop_toBottomOf="@+id/review_Text"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/sendText"
@@ -84,6 +89,93 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/post_tagbtn"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="56dp"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/sendText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toEndOf="@+id/tag_text"
+        app:srcCompat="@drawable/ic_addpost" />
+
+    <TextView
+        android:id="@+id/tagA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        android:hint="#"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/review_Text" />
+
+    <TextView
+        android:id="@+id/tagB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="59dp"
+        android:hint="#"
+        app:layout_constraintBottom_toTopOf="@+id/tag_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tagA" />
+
+    <TextView
+        android:id="@+id/tagC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:hint="#"
+        app:layout_constraintEnd_toStartOf="@+id/tagD"
+        app:layout_constraintHorizontal_bias="0.623"
+        app:layout_constraintStart_toEndOf="@+id/tagA"
+        app:layout_constraintTop_toBottomOf="@+id/review_Text" />
+
+    <TextView
+        android:id="@+id/tagD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
+        android:hint="#"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/review_Text" />
+
+    <TextView
+        android:id="@+id/tagE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
+        android:layout_marginBottom="59dp"
+        android:hint="#"
+        app:layout_constraintBottom_toTopOf="@+id/tag_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tagD" />
+
+    <TextView
+        android:id="@+id/tagF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="#"
+        app:layout_constraintBottom_toTopOf="@+id/tag_text"
+        app:layout_constraintEnd_toStartOf="@+id/tagB"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toEndOf="@+id/tagE"
+        app:layout_constraintTop_toBottomOf="@+id/tagC"
+        app:layout_constraintVertical_bias="0.305" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
