@@ -791,7 +791,7 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/ic_rank" />
+                app:srcCompat="@drawable/ic_rankon" />
         </LinearLayout>
     </LinearLayout>
 
