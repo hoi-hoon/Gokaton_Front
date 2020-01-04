@@ -97,6 +97,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent();
+        intent.putExtra("result", "뒤로가기성공");
+        setResult(2, intent);
+        Log.i("here","1");
+        finish();
+    }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 

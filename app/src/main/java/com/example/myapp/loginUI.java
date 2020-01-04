@@ -28,7 +28,8 @@ public class loginUI extends AppCompatActivity {
         if(token != null){
             Log.i("@@@@@@@@@@@@@@@token",token);
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
+            Log.i("here","0");
+            startActivityForResult(intent,1);
         }
         super.onCreate(savedInstanceState);
         //상태바 안 보이게
@@ -65,11 +66,29 @@ public class loginUI extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent_sign = new Intent(getApplicationContext(), signupUI.class);
-                startActivity(intent_sign);
+                Log.i("here","0");
+                startActivityForResult(intent_sign,1);
                     }
         });
     }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.i("here","1");
+        super.onActivityResult(requestCode, resultCode, data);
 
+        if (requestCode == 1) {
+            Log.i("here","2");
+            if (resultCode == RESULT_OK) {
+                Log.i("here","3");
+                Toast.makeText(loginUI.this, "Result: " + data.getStringExtra("result"), Toast.LENGTH_SHORT).show();
+            } else {   // RESULT_CANCEL
+                Log.i("here","10");
+                Toast.makeText(loginUI.this, "Failed", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+//        } else if (requestCode == REQUEST_ANOTHER) {
+//            ...
+        }
+    }
     public class NetworkTask extends AsyncTask<Void, Void, String> {
 
         private String url;
