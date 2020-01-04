@@ -7,8 +7,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +24,11 @@ public class loginUI extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //상태바 안 보이게
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.login_layout);
 
         Button btn = findViewById(R.id.login_button);
@@ -43,6 +51,15 @@ public class loginUI extends AppCompatActivity {
                 NetworkTask networkTask = new NetworkTask(url, signup_info);
                 networkTask.execute();
             }
+        });
+
+        ImageButton sign_btn = findViewById(R.id.google_btn);
+        sign_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_sign = new Intent(getApplicationContext(), signupUI.class);
+                startActivity(intent_sign);
+                    }
         });
     }
 
@@ -73,16 +90,21 @@ public class loginUI extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            Log.i("http response",token);
-            Toast.makeText(loginUI.this, token, Toast.LENGTH_SHORT).show();
-            //토큰 저장 코드, 값을 저장한다.
-            SharedPreferences sp = getSharedPreferences("UserTokenKey", MODE_PRIVATE);
-            SharedPreferences.Editor editor = sp.edit();
-            editor.putString("TokenCode", token);
-            editor.apply();
+            if(token=="null"){
+                Toast.makeText(loginUI.this, "잘못 입력했습니다", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                // Log.i("http response", token);
+                // Toast.makeText(loginUI.this, token, Toast.LENGTH_SHORT).show();
+                //토큰 저장 코드, 값을 저장한다.
+                SharedPreferences sp = getSharedPreferences("UserTokenKey", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("TokenCode", token);
+                editor.apply();
 
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
         }
     }
 }
