@@ -5,6 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_account"
+        />
+
+    <TextView
+        android:id="@+id/text_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="내가 작성한 리뷰"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/text_myreview"
+        />
+
+    <TextView
+        android:id="@+id/text_myreview"
+        android:layout_width="253dp"
+        android:layout_height="219dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:text="리뷰 제목"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/mypage_postbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        />
+
+
+
+
 
 
 
@@ -57,5 +95,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mypage_postbtn"
         app:srcCompat="@drawable/ic_rank" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

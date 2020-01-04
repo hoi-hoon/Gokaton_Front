@@ -37,6 +37,11 @@ public class mypageUI extends AppCompatActivity {
                         startActivity(intentC);
                         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                         break ;
+                    case R.id.mypage_homebtn :
+                        Intent intentD = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intentD);
+                        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+                        break ;
                 }
             }
         } ;
@@ -46,5 +51,7 @@ public class mypageUI extends AppCompatActivity {
         btnrank.setOnClickListener(onClickListener) ;
         ImageButton btnpost = (ImageButton) findViewById(R.id.mypage_postbtn) ;
         btnpost.setOnClickListener(onClickListener) ;
+        ImageButton btnhome = (ImageButton) findViewById(R.id.mypage_homebtn) ;
+        btnhome.setOnClickListener(onClickListener) ;
     }
 }
