@@ -65,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
         btnmypage.setOnClickListener(onClickListener);
         Button btnsign = (Button) findViewById(R.id.home_signbtn);
         btnsign.setOnClickListener(onClickListener);
+
+        //------------------------------------------hoi
+        ////------------------------------------------hoi22222
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
