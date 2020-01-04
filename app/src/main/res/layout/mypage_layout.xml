@@ -13,7 +13,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:weightSum="13.5">
+            android:weightSum="13.9">
             <RelativeLayout
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
@@ -26,106 +26,90 @@
                     app:srcCompat="@drawable/main_logo">
                 </ImageView>
             </RelativeLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3.5"
+                android:orientation="horizontal"
+                app:srcCompat="@drawable/ic_account">
+            </ImageView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.7"
+                android:gravity="center"
+                android:text="혼플 레벨 : 3621Lv">
+            </TextView>
+            <ProgressBar
+                android:paddingTop="3dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_gravity="center"
+                android:id="@+id/review_progress1"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:progress="20"
+                android:layout_weight="0.7">
+            </ProgressBar>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/review_shape"
-                android:layout_weight="3.5"
+                android:layout_weight="0.4"
                 android:orientation="horizontal"
-                android:weightSum="4">
-                <LinearLayout
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:layout_width="0dp"
+                android:weightSum="10">
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/review_shape">
-                </LinearLayout>
+                    android:text="0xp">
+                </TextView>
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:weightSum="2">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="김재훈"
-                            android:gravity="bottom|center">
-                        </TextView>
-                    </LinearLayout>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:text="Lv. 3261"
-                        android:textAlignment="center">
-                    </TextView>
+                    android:layout_weight="8"
+                    android:text="0xp">
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:orientation="vertical"
-                    android:weightSum="2">
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:id="@+id/home_mypagebtn"
-                        android:background="@drawable/review_shape"
-                        android:text="마이페이지">
-                    </Button>
-                    <Button
-                        android:id="@+id/token_chk_btn"
-                        android:layout_width="match_parent"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/review_shape"
-                        android:text="토큰체크">
-                    </Button>
-                </LinearLayout>
-            </LinearLayout>
 
+                <TextView
+                    android:layout_gravity="end"
+                    android:textAlignment="textEnd"
+                    android:layout_marginRight="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="1"
+
+                    android:text="2000xp">
+
+                </TextView>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.6">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:text="내 최근 혼플"
+                    android:textSize="20dp"
+                    android:textColor="#000000"
+                    android:gravity="center">
+                </TextView>
+            </RelativeLayout>
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="9"
+                android:layout_weight="7"
                 android:fillViewport="true"
                 android:nestedScrollingEnabled="true">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:text="회원님을 위한 맞춤 추천 리뷰"
-                            android:gravity="center">
-                        </TextView>
-                    </RelativeLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="300dp"
@@ -292,17 +276,6 @@
                             </RelativeLayout>
                         </LinearLayout>
                     </LinearLayout>
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:text="회원님을 위한 최신 리뷰"
-                            android:gravity="center">
-                        </TextView>
-                    </RelativeLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="300dp"
@@ -469,17 +442,6 @@
                             </RelativeLayout>
                         </LinearLayout>
                     </LinearLayout>
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:text="회원님을 위한 인기 리뷰"
-                            android:gravity="center">
-                        </TextView>
-                    </RelativeLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="300dp"
@@ -630,6 +592,20 @@
                                     android:layout_weight="2">
                                 </LinearLayout>
                             </LinearLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="3">
+                                <TextView
+                                    android:id="@+id/home_pop_2_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="3"
+                                    android:layout_centerInParent="true"
+                                    android:textSize="20dp"
+                                    android:text="너넨 계횐이라는 것이 있구나\n앙 재훈띄\n재훈이형 사랑해요~">
+                                </TextView>
+                            </RelativeLayout>
                         </LinearLayout>
                     </LinearLayout>
 
