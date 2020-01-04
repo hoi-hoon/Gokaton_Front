@@ -22,7 +22,7 @@ import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
+import android.content.ContextWrapper;
 import android.util.DisplayMetrics;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.home_layout);
 
+        Log.d("tag", "Internal private data dir: " + getDataDir().getAbsolutePath());
         Button.OnClickListener onClickListener = new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -192,15 +193,23 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("@@@@@@@@@@@@@@@@",jObj.getJSONObject("data").toString());
                     SharedPreferences sp = getSharedPreferences("UserTokenKey", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
-
-                    editor.putString("id", jObj.getJSONObject("data").getString("_id"));
+                    String tt = jObj.getJSONObject("data").getString("id");
+                    Log.i("안녕하세요",tt);
+                    editor.putString("id", tt);
                     editor.putString("username", jObj.getJSONObject("data").getString("username"));
                     editor.putString("name", jObj.getJSONObject("data").getString("name"));
                     editor.putString("email", jObj.getJSONObject("data").getString("email"));
-                    // editor.putString("profile", jObj.getJSONObject("data").getString("profile"));
+                    //editor.putString("profile", jObj.getJSONObject("data").getString("profile"));
                     editor.putString("exp", jObj.getJSONObject("data").getString("exp"));
                     editor.putString("lv", jObj.getJSONObject("data").getString("level"));
-                    editor.apply();
+                    editor.commit();
+
+                    String temp = sp.getString("id","");
+                    Log.i("됬나용?",temp);
+                    TextView textName = findViewById(R.id.home_default_name);
+                    TextView textLevel = findViewById(R.id.home_default_level);
+                    textName.setText(jObj.getJSONObject("data").getString("name"));
+                    textLevel.setText(jObj.getJSONObject("data").getString("lv"));
 
                 } catch (JSONException e) {
                     e.printStackTrace();
