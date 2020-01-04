@@ -88,12 +88,22 @@ public class MainActivity extends AppCompatActivity {
         tokenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 토큰 가져오는 코드
+                // SharedPreferences 확인 코드
                 SharedPreferences sp = getSharedPreferences("UserTokenKey", MODE_PRIVATE);
-                String token = sp.getString("TokenCode", "");
+                // String token = sp.getString("TokenCode", "");
+                String token = sp.getString("id", "");
+                token = token + sp.getString("email", "");
                 Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent();
+        intent.putExtra("result", "뒤로가기성공");
+        setResult(2, intent);
+        Log.i("here","1");
+        finish();
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -138,26 +148,26 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     JSONObject jObj = new JSONObject(s);
                     Log.i("@@@@@@@@@@@@@@@@",jObj.getJSONObject("data").toString());
+                    SharedPreferences sp = getSharedPreferences("UserTokenKey", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
 
-                    //user.username = jObj.get("username").toString();
-                    //user.name = jObj.get("name").toString();
-                    //user.email = jObj.get("email").toString();
-                    //user.profile = jObj.get("profile").toString();
-                    //user.exp = jObj.get("exp").toString();
+                    editor.putString("id", jObj.getJSONObject("data").getString("_id"));
+                    editor.putString("username", jObj.getJSONObject("data").getString("username"));
+                    editor.putString("name", jObj.getJSONObject("data").getString("name"));
+                    editor.putString("email", jObj.getJSONObject("data").getString("email"));
+                    editor.putString("profile", jObj.getJSONObject("data").getString("profile"));
+                    editor.putString("exp", jObj.getJSONObject("data").getString("exp"));
+                    editor.putString("lv", jObj.getJSONObject("data").getString("lv"));
+                    editor.apply();
+
+                    TextView textName = findViewById(R.id.home_default_name);
+                    TextView textLevel = findViewById(R.id.home_default_name);
+                    textName.setText(jObj.getJSONObject("data").getString("name"));
+                    textLevel.setText(jObj.getJSONObject("data").getString("lv"));
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                SharedPreferences sp = getSharedPreferences("UserTokenKey", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                // Object 저장하는 법 찾아야됨
-                //editor.putString("id", user.id);
-                //editor.putString("username", user.username);
-                //editor.putString("name", user.name);
-                //editor.putString("email", user.email);
-                //editor.putString("profile", user.profile);
-                //editor.putString("exp", user.exp);
-                editor.apply();
             }
         }
     }
