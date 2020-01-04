@@ -15,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@drawable/login_background"/>
+
         //android:src="@drawable/ic_account"
     </LinearLayout>
 
@@ -30,8 +31,8 @@
             android:textStyle="bold"
             android:textSize="40sp"
             android:textColor="#fff"
-            android:text="LOGIN"
             android:background="#0000"
+            android:text="솔플"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
