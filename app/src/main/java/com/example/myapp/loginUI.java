@@ -23,6 +23,13 @@ import org.json.JSONObject;
 public class loginUI extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences sp = getSharedPreferences("UserTokenKey", MODE_PRIVATE);
+        String token = sp.getString("TokenCode", "");
+        if(token != null){
+            Log.i("@@@@@@@@@@@@@@@token",token);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        }
         super.onCreate(savedInstanceState);
         //상태바 안 보이게
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
