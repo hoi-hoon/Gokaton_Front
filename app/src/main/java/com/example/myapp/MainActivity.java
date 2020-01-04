@@ -85,27 +85,22 @@ public class MainActivity extends AppCompatActivity {
         networkTask.execute();
 
         // 토큰 확인용 임시. 추후 삭제 요망
-        Button tokenBtn = (Button) findViewById(R.id.token_chk_btn);
+        final Button tokenBtn = (Button) findViewById(R.id.token_chk_btn);
         tokenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // SharedPreferences 확인 코드
                 SharedPreferences sp = getSharedPreferences("UserTokenKey", MODE_PRIVATE);
-                // String token = sp.getString("TokenCode", "");
-                String token = sp.getString("id", "");
-                token = token + sp.getString("email", "");
-                Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
-
+                /*
+                String token = sp.getString("TokenCode", "");
+                    token = token + sp.getString("id", "");
+                    token = token + sp.getString("email", "");
+                    Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
+                */
                 // for logout
                 SharedPreferences.Editor editor = sp.edit();
                 editor.clear();
                 editor.apply();
-
-                Intent intent = new Intent();
-                intent.putExtra("result", "캐시 지우기성공");
-                setResult(2, intent);
-                Log.i("here","1");
-                finish();
             }
         });
     }
