@@ -79,6 +79,9 @@ public class postUI extends AppCompatActivity {
                 intent.putExtra("result", "포스팅 완료!");
                 setResult(RESULT_OK, intent);
                 finish();
+                Intent intentA = new Intent(getApplicationContext(), reviewUI.class);
+                startActivity(intentA);
+                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
             }
         });
 
