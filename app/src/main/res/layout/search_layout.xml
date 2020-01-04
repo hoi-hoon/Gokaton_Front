@@ -39,10 +39,13 @@
                 app:srcCompat="@drawable/ic_search"></ImageView>
 
             <EditText
+                android:id="@+id/search_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="13.7"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
                 android:hint="#"></EditText>
         </LinearLayout>
 
