@@ -54,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
                         break ;
                 }
             }
-        } ;
+        };
+
         ImageButton btnsearch = (ImageButton) findViewById(R.id.home_searchbtn) ;
         btnsearch.setOnClickListener(onClickListener) ;
         ImageButton btnrank = (ImageButton) findViewById(R.id.home_rankbtn) ;
