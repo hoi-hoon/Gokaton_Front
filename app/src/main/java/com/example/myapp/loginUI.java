@@ -80,7 +80,11 @@ public class loginUI extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 Log.i("here","3");
                 Toast.makeText(loginUI.this, "Result: " + data.getStringExtra("result"), Toast.LENGTH_SHORT).show();
-            } else {   // RESULT_CANCEL
+            } else if(resultCode == 3) {
+                Log.i("here","ggggooooodddd");
+            }
+                else
+             {   // RESULT_CANCEL
                 Log.i("here","10");
                 Toast.makeText(loginUI.this, "Failed", Toast.LENGTH_SHORT).show();
                 finish();

@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:text="혼플의 신"
+                android:text="솔플의 신"
                 android:textSize="20dp" />
 
             <View
@@ -65,7 +65,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="김재훈꼬추3cm"
+                        android:text="------------"
                         android:textSize="20dp" />
                 </LinearLayout>
                 <LinearLayout
@@ -116,7 +116,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="김재훈꼬추4cm"
+                        android:text="------------"
                         android:textSize="20dp" />
                 </LinearLayout>
                 <LinearLayout
@@ -166,7 +166,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="김재훈꼬추3cm"
+                        android:text="------------"
                         android:textSize="20dp" />
                 </LinearLayout>
                 <LinearLayout
@@ -216,7 +216,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="김재훈꼬추3cm"
+                        android:text="------------"
                         android:textSize="20dp" />
                 </LinearLayout>
                 <LinearLayout
@@ -266,7 +266,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="김재훈꼬추3cm"
+                        android:text="------------"
                         android:textSize="20dp" />
                 </LinearLayout>
                 <LinearLayout
@@ -316,7 +316,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="김재훈꼬추3cm"
+                        android:text="------------"
                         android:textSize="20dp" />
                 </LinearLayout>
                 <LinearLayout
@@ -366,7 +366,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="김재훈꼬추3cm"
+                        android:text="------------"
                         android:textSize="20dp" />
                 </LinearLayout>
                 <LinearLayout
@@ -416,7 +416,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="김재훈꼬추3cm"
+                        android:text="------------"
                         android:textSize="20dp" />
                 </LinearLayout>
                 <LinearLayout
@@ -466,7 +466,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="김재훈꼬추3cm"
+                        android:text="------------"
                         android:textSize="20dp" />
                 </LinearLayout>
                 <LinearLayout
@@ -516,7 +516,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="김재훈꼬추3cm"
+                        android:text="------------"
                         android:textSize="20dp" />
                 </LinearLayout>
                 <LinearLayout
@@ -566,7 +566,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="김재훈꼬추3cm"
+                        android:text="------------"
                         android:textSize="20dp" />
                 </LinearLayout>
                 <LinearLayout
@@ -616,7 +616,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="김재훈꼬추3cm"
+                        android:text="------------"
                         android:textSize="20dp" />
                 </LinearLayout>
                 <LinearLayout
@@ -666,7 +666,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="김재훈꼬추3cm"
+                        android:text="------------"
                         android:textSize="20dp" />
                 </LinearLayout>
                 <LinearLayout
@@ -716,7 +716,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="김재훈꼬추3cm"
+                        android:text="------------"
                         android:textSize="20dp" />
                 </LinearLayout>
                 <LinearLayout

@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
@@ -31,6 +30,9 @@ import android.view.ViewGroup.LayoutParams;
 import android.graphics.Color;
 import org.w3c.dom.Text;
 import android.view.MotionEvent;
+
+import com.google.android.material.navigation.NavigationView;
+
 public class MainActivity extends AppCompatActivity {
     private int ImageCount = 5;
     @Override
@@ -83,25 +85,47 @@ public class MainActivity extends AppCompatActivity {
         NetworkTask networkTask = new NetworkTask(url, null);
         networkTask.execute();
 
-        // 토큰 확인용 임시. 추후 삭제 요망
-        final Button tokenBtn = (Button) findViewById(R.id.token_chk_btn);
-        tokenBtn.setOnClickListener(new View.OnClickListener() {
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerLayout = navigationView.getHeaderView(0);
+        Button logoutBtn = headerLayout.findViewById(R.id.logout_btn);
+        ImageView profileBtn = headerLayout.findViewById(R.id.profile_btn);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // SharedPreferences 확인 코드
                 SharedPreferences sp = getSharedPreferences("UserTokenKey", MODE_PRIVATE);
-                /*
-                String token = sp.getString("TokenCode", "");
-                    token = token + sp.getString("id", "");
-                    token = token + sp.getString("email", "");
-                    Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
-                */
-                // for logout
                 SharedPreferences.Editor editor = sp.edit();
                 editor.clear();
                 editor.apply();
+
+                Intent intent = new Intent();
+                setResult(3,intent);
+                finish();
             }
         });
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentD = new Intent(getApplicationContext(), mypageUI.class);
+                startActivityForResult(intentD, 1);
+            }
+        });
+
+        /*
+        Button outbtn = (Button) findViewById(R.id.token_chk_btn);
+        outbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sp = getSharedPreferences("UserTokenKey", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.clear();
+                editor.apply();
+
+                Intent intent = new Intent();
+                setResult(3,intent);
+                finish();
+            }
+        });
+         */
     }
     @Override
     public void onBackPressed(){
@@ -142,6 +166,18 @@ public class MainActivity extends AppCompatActivity {
             String token = sp.getString("TokenCode", "");
             RequestHttpURLConnection requestHttpURLConnection = new RequestHttpURLConnection();
             result = requestHttpURLConnection.request(url, values,"GET",token);
+            try {
+                JSONObject jObj = new JSONObject(result);
+                Log.i("받았엉",jObj.toString());
+                String level = jObj.getJSONObject("data").getString("level");
+                String name = jObj.getJSONObject("data").getString("name");
+                TextView textView_name = (TextView)findViewById(R.id.home_default_name);
+                TextView textView_lv = (TextView)findViewById(R.id.home_default_level);
+                textView_name.setText(name);
+                textView_lv.setText("Lv."+level);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             return result;
         }
 
@@ -161,15 +197,10 @@ public class MainActivity extends AppCompatActivity {
                     editor.putString("username", jObj.getJSONObject("data").getString("username"));
                     editor.putString("name", jObj.getJSONObject("data").getString("name"));
                     editor.putString("email", jObj.getJSONObject("data").getString("email"));
-                    editor.putString("profile", jObj.getJSONObject("data").getString("profile"));
+                    // editor.putString("profile", jObj.getJSONObject("data").getString("profile"));
                     editor.putString("exp", jObj.getJSONObject("data").getString("exp"));
-                    editor.putString("lv", jObj.getJSONObject("data").getString("lv"));
+                    editor.putString("lv", jObj.getJSONObject("data").getString("level"));
                     editor.apply();
-
-                    TextView textName = findViewById(R.id.home_default_name);
-                    TextView textLevel = findViewById(R.id.home_default_level);
-                    textName.setText(jObj.getJSONObject("data").getString("name"));
-                    textLevel.setText(jObj.getJSONObject("data").getString("lv"));
 
                 } catch (JSONException e) {
                     e.printStackTrace();
