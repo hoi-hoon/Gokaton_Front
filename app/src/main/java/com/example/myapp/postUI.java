@@ -120,10 +120,8 @@ public class postUI extends AppCompatActivity {
                 post_info.put("review",rvtext);
                 Log.i("되라고제발",post_info.toString());
 
-/*
                 NetworkTask networkTask = new NetworkTask(url, post_info);
                 networkTask.execute();
-                */
 
                 // 작성기능
                 Intent intent = new Intent();
@@ -242,9 +240,10 @@ public class postUI extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == GET_GALLERY_IMGAGE){
-            sendPicture(data.getData());
+            //sendPicture(data.getData());
         }
     }
+    /*
     private void sendPicture(Uri imgUri) {
         Log.e("이미지이미지이미지이미지", imgUri.toString());
         String imagePath = getRealPathFromURI(imgUri);
@@ -258,10 +257,9 @@ public class postUI extends AppCompatActivity {
         byte[] imageByte = bufferedImage.toByteArray();
         bufferedImage.close();
         return imageByte;
-
-
-
     }
+
+     */
 
 
     private String getRealPathFromURI(Uri contentUri) {

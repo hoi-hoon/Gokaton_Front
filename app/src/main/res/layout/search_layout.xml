@@ -70,7 +70,7 @@
                     android:layout_marginRight="12dp"
                     android:layout_marginBottom="9dp"
                     android:layout_weight="3"
-                    android:text="#시발"
+                    android:text="#혼밥"
                     android:background="@drawable/review_shape">
                 </Button>
                 <Button
@@ -82,7 +82,7 @@
                     android:layout_marginRight="12dp"
                     android:layout_marginBottom="9dp"
                     android:layout_weight="3"
-                    android:text="#시발"
+                    android:text="#혼코노"
                     android:background="@drawable/review_shape">
                 </Button>
 
@@ -95,7 +95,7 @@
                     android:layout_marginRight="12dp"
                     android:layout_marginBottom="9dp"
                     android:layout_weight="3"
-                    android:text="#시발"
+                    android:text="#혼자"
                     android:background="@drawable/review_shape"
                     android:layout_gravity="center"></Button>
             </LinearLayout>
@@ -120,7 +120,7 @@
                     android:layout_marginRight="12dp"
                     android:layout_marginBottom="9dp"
                     android:layout_weight="3"
-                    android:text="#시발">
+                    android:text="#나혼자">
                 </Button>
                 <Button
                     android:id="@+id/search_tag5"
@@ -132,7 +132,7 @@
                     android:layout_marginRight="12dp"
                     android:layout_marginBottom="9dp"
                     android:layout_weight="3"
-                    android:text="#시발">
+                    android:text="#또혼자">
                 </Button>
                 <Button
                     android:id="@+id/search_tag6"
@@ -144,7 +144,7 @@
                     android:layout_marginRight="12dp"
                     android:layout_marginBottom="9dp"
                     android:layout_weight="3"
-                    android:text="#시발">
+                    android:text="#ㅠㅠ">
                 </Button>
             </LinearLayout>
         </LinearLayout>
