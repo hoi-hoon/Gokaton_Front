@@ -1,6 +1,7 @@
 package com.example.myapp;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -74,7 +75,8 @@ public class signupUI extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            Log.i("http response",s);
+            Intent intent = new Intent();
+            setResult(3,intent);
             finish();
         }
     }
