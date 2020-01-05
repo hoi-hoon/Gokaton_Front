@@ -20,9 +20,10 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+
                     app:srcCompat="@drawable/main_logo">
                 </ImageView>
             </RelativeLayout>
