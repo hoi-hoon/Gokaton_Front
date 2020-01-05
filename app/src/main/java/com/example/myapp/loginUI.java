@@ -25,7 +25,7 @@ public class loginUI extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences sp = getSharedPreferences("UserTokenKey", MODE_PRIVATE);
         String token = sp.getString("TokenCode", "");
-        if(token != null){
+        if(token.length() > 12){
             Log.i("@@@@@@@@@@@@@@@token",token);
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             Log.i("here","0");
